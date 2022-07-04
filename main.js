@@ -1,21 +1,21 @@
-// アコーディオン
-$('.accordion-title').click(function() {
-    $(this).next().toggleClass('is-open');
-    $(this).toggleClass('is-active');
-})
+jQuery(function () {
 
-// ハンバーガーメニュー
-$(function () {
-    $('#js-hamburger').click(function () {
-        // 押したボタンのattr属性の値に応じて変更
-        if ($(this).hasClass('hamburger-active')) {
-            $(this).removeClass('hamburger-active');
-            $('#js-global-menu').removeClass('is-active')
-            $('.back_color').removeClass('is-active')
+    // アコーディオン
+    jQuery('.accordion-title').click(function() {
+        jQuery(this).next().toggleClass('is-open');
+        jQuery(this).toggleClass('is-active');
+    })
+    
+    // ハンバーガーメニュー
+    jQuery('#js-hamburger').click(function () {
+        if (jQuery(this).hasClass('hamburger-active')) {
+            jQuery(this).removeClass('hamburger-active');
+            jQuery('#js-global-menu').removeClass('is-active')
+            jQuery('.back_color').removeClass('is-active')
         } else {
-            $(this).addClass('hamburger-active');
-            $('#js-global-menu').addClass('is-active')
-            $('.back_color').addClass('is-active')
+            jQuery(this).addClass('hamburger-active');
+            jQuery('#js-global-menu').addClass('is-active')
+            jQuery('.back_color').addClass('is-active')
         }
     })
 })
