@@ -1,0 +1,129 @@
+.footer_image {
+    position: relative;
+    height: 256px;
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        @include z-index(image)
+    }
+    div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        h2 {
+            @include color(white_color_1);
+            margin-top: 70px;
+        }
+        button {
+            height: 50px;
+            width: 280px;
+            border: none;
+            border-radius: 25px;
+            margin: 16px 0px 22px;
+            @include backColor(orange_color);
+            a {
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.footer_phone_text {
+    height: 80px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 778px;
+    justify-content: center;
+    padding-top: 20px;
+    h2 {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    p {
+        margin-top: 18px;
+        &:last-child {
+            margin-right: 108px;
+        }
+    }
+}
+
+.footer_info {
+    @include backColor(navy_color);
+    .footer_info_text {
+        height: 230px;
+        width: 80%;
+        max-width: 917px;
+        margin: 0 auto;
+    }
+}
+
+.footer_info_left {
+    flex: 1;
+    padding-top: 45px;
+    ul {
+        justify-content: left;
+        li {
+            @include color(white_color_1);
+            + li::before {
+                content: '';
+                height: 23px;
+                border: 1px solid #FFFFFF;
+                margin: 0 21.5px;
+            }
+            a {
+                @include color(white_color_1);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.footer_info_right {
+    width: 197px;
+    .footer_info_image {
+        @include backColor(white_color_1);
+        height: 58px;
+        margin: 35px 0px 27px;
+        img {
+            padding: 14px 19px;
+            width: 159px + 19px + 19px;
+            height: auto;
+        }
+    }
+    .footer_info_phone {
+        text-align: right;
+        p {
+            @include color(white_color_1);
+        }
+        .footer_tel {
+            justify-content: right;
+            img {
+                width: 11px;
+                height: 16px;
+                margin-right: 5px;
+                transform: translateY(4px);
+            }
+        }
+        > p {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    }
+}
+
+.footer_copyright {
+    height: 36px;
+    .footer_copyright_text {
+        margin: 0 auto;
+        width: 73%;
+        text-align: right;
+        padding-top: 12px;
+    }
+    p {
+        font-size: 12px;
+    }
+}

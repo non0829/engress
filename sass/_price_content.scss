@@ -1,0 +1,104 @@
+.sec_price_system {
+    text-align: center;
+    h2 {
+        margin: 60px 0px;
+        font-size: 32px;
+    }
+    .flex {
+        justify-content: center;
+        p {
+            width: 280px;
+            height: 90px;
+            @include backColor(navy_color);
+            @include color(white_color_1);
+            font-size: 22px;
+            line-height: 90px;
+            font-weight: bold;
+        }
+        span {
+            width: 98px;
+            height: 90px;
+            &::before, &::after {
+                content: '';
+                width: 27px;
+                display: block;
+                border: 2px solid #1B224C;
+            }
+            &::before {
+                transform: translateX(35px) translateY(40px) rotate(90deg);
+            }
+            &::after {
+                transform: translateX(35px) translateY(36px);
+            }
+        }
+    }
+    .price_system_text {
+        margin-top: 45px;
+        text-align: left;
+        line-height: 27px;
+    }
+}
+
+.sec_price_table {
+    margin-top: 90px;
+    margin-bottom: 62px;
+    text-align: center;
+    h2 {
+        font-size: 32px;
+        margin-bottom: 70px;
+    }
+    .flex > li {
+        width: calc((100% - 21px) / 4);
+    }
+}
+
+.price_plan {
+    margin-top: 36px;
+    > h3 {
+        height: 60px;
+        @include backColor(navy_color);
+        @include color(white_color_1);
+        font-size: 16px;
+        padding-top: 17px;
+    }
+}
+
+.price_plan_feature {
+    margin-top: 0px;
+    > h3 {
+        height: 96px;
+        line-height: 27px;
+        @include backColor(orange_color);
+    }
+}
+
+.price_text {
+    border: 0.5px solid #1B224C;
+    height: 474px;
+    h3 {
+        font-size: 25px;
+        margin-top: 30px;
+    }
+    p {
+        margin-top: 14px;
+    }
+    .price_text_check {
+        margin-top: 51px;
+        li {
+            width: 85%;
+            line-height: 27px;
+            margin: 0px auto 19px;
+            font-size: 16px;
+        }
+        li::before {
+            content: '';
+            display: inline-block;
+            transform: rotate(-45deg) translateY(-3px);
+            width: 9px;
+            height: 7px;
+            border-bottom: 3px solid #1B224C;
+            border-left: 3px solid #1B224C;
+            margin-right: 10px;
+        }
+    }
+}

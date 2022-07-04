@@ -1,0 +1,232 @@
+header {
+    height: 80px;
+    position: fixed;
+    @include z-index(header);
+    top: 0;
+    width: 100%;
+    @include backColor(white_color_1)
+}
+
+.header_left_nav {
+    padding: 27px 0px 0px 15px;
+    li {
+        margin-right: 27px;
+        font-weight: bold;
+        a {
+            @include color(navy_color);
+            text-decoration: none;
+        }
+    }
+    @media screen and (max-width: 640px) {
+        li {
+            display: none;
+        }
+        li:nth-child(1) {
+            display: block;
+        }
+    }
+}
+
+.header_right_nav {
+    padding: 15px 10px 0px 0px;
+    .header_info {
+        width: 140px;
+        text-align: right;
+        margin: 12px 23px 0px 0px;
+        p {
+            font-size: 12px;
+        }
+        .header_tel {
+            justify-content: right;
+            flex-wrap: nowrap;
+            img {
+                width: 10px;
+                height: 14px;
+                margin: 6px 5px 0px 0px;
+            }
+            p {
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+    }
+    .header_btn {
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        a {
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        &:nth-child(2) {
+            width: 142px;
+            @include backColor(orange_color);
+            margin-right: 10px;
+        }
+        &:last-child {
+            width: 137px;
+            @include backColor(navy_color);
+        }
+    }
+    @media screen and (max-width: 1002px) {
+        display: none;
+    }
+}
+
+// ハンバーガーメニュー
+
+.hamburger {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    @include z-index(hamburger);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #1B224C;
+    box-shadow: 0 0 2rem transparent;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+    &:hover,
+    &:focus {  
+    box-shadow: 0 0 .5rem rgba(161, 161, 161, 0.5);
+    }
+    @media screen and (min-width: 1003px) {
+        display: none;
+    }
+}
+
+.hamburger__line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 18px;
+    height: 2px;
+    background-color: #1B224C;
+    -webkit-transition: inherit;
+            transition: inherit;
+    &::before,
+    &::after {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        content: '';
+        -webkit-transition: inherit;
+                transition: inherit;
+    }
+    &::before {
+        top: -5px;
+    }
+    &::after {
+        top: 5px;
+    }
+}
+
+.hamburger-active {
+    border: 1px solid #fff!important;
+    .hamburger__line {
+        background-color: transparent;
+        &::before,
+        &::after {
+            top: 0;
+            @include backColor(white_color_1);
+        }
+        &::before {
+            -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                    transform: rotate(45deg);
+        }
+        &::after {
+            -webkit-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+        }
+    }
+}
+
+.back_color {
+    transition-duration: 0.3s;
+}
+
+.back_color.is-active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    @include z-index(back_color);
+    @include backColor(back_color);
+}
+
+// ハンバーガー関連ここまで
+
+// グローバルメニューここから
+
+.sp-global-menu {
+    position: fixed;
+    @include z-index(global-menu);
+    width: 200px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    @include backColor(navy_color);
+    color: #fff;
+    transform: translateX(200px);
+    transition-duration: 0.3s;
+    opacity: 0;
+    &.is-active {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    nav {
+        width: 80%;
+        margin: 80px auto 0px;
+        text-align: center;
+        li {
+            @include color(white_color_1);
+            margin-top: 15px;
+            a {
+                text-decoration: none;
+            }
+        }
+        .sp-global-menu_info {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            p {
+                @include color(white_color_1);
+            }
+            .sp-global-menu_tel {
+                width: 80%;
+                margin: 5px auto;
+                img {
+                    width: 12px;
+                    height: 20px;
+                    transform: translateY(2px);
+                }
+            }
+        }
+        .header_btn {
+            width: 80%;
+            height: 50px;
+            margin: 10px auto;
+            border: none;
+            border-radius: 25px;
+            @include backColor(white_color_1);
+            a {
+                @include color(navy_color);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+// グローバルメニューここまで
