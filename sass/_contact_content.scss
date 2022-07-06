@@ -24,7 +24,7 @@ form {
     label {
         display: block;
         font-size: 16px;
-        margin-bottom: 12px;
+        margin-bottom: 0px;
     }
     input {
         border: 0.5px solid #1B224C;
@@ -39,13 +39,16 @@ form {
         height: 240px;
     }
 }
+.mwform-radio-field-text {
+    font-weight: normal;
+}
 
 .form_content_type {
     p {
         margin-bottom: 20px;
-    }
-    span {
-        font-weight: bold;
+        span {
+            font-weight: bold;
+        }
     }
     input {
         width: 20px;

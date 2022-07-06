@@ -20,7 +20,7 @@
     <section class="sec_contact_content">
         <div class="wrapper">
             <p class="contact_message">弊社に興味を持って頂きありがとうございます。商談やサービスのご利用、資料請求について下記のフォームよりお問い合わせください。</p>
-            <form action="#" method="get">
+            <!-- <form action="#" method="get">
                 <div class="form_content">
                     <label for="company">会社名</label>
                     <input type="text" placeholder="Engress" name="company">
@@ -61,7 +61,9 @@
                     <input type="checkbox" name="privacy" value="agree"><label for="privacy">プライバシーポリシーに同意する</label>
                 </div>
                 <input type="submit" value="送信する" class="submit">
-            </form>
+            </form> -->
+            <?php remove_filter ('the_content', 'wpautop'); ?>
+            <?php the_content() ?>
         </div>
     </section>
 
@@ -98,8 +100,6 @@
         </div>
     </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="main.js"></script>
 </body>
 
 </html>
