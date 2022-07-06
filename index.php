@@ -82,39 +82,28 @@
         <div class="wrapper">
             <h2>TOEFL成功事例</h2>
             <div class="flex">
+                <?php
+                    $args = array(
+                        'post_type' => 'success', // 投稿タイプを指定
+                        'posts_per_page' => 3, // 表示件数を指定
+                    );
+                    $the_query = new WP_Query($args);
+                ?>
+                <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article>
-                    <p>TOEFL iBT 100点を突破してコロンビア大学大学院に進学できました！</p>
+                    <p><?php the_title() ?></p>
                     <div class="success_image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/model01.jpg" alt="">
+                        <img src="<?php the_field('顔写真'); ?>" alt="">
                     </div>
                     <div class="flex success_flex">
-                        <p>会社員</p>
-                        <p>T.Fujiyamaさん</p>
-                        <p>3ヶ月でTOEFL80→108点</p>
+                        <p><?php the_field('属性'); ?></p>
+                        <p><?php the_field('名前'); ?></p>
+                        <p><?php the_field('成績詳細'); ?></p>
                     </div>
                 </article>
-                <article>
-                    <p>半年でTOEFL 40点→100点を達成！コロンビア大学大学院に合格</p>
-                    <div class="success_image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/model02.jpg" alt="">
-                    </div>
-                    <div class="flex success_flex">
-                        <p>大学生</p>
-                        <p>Y.Takiyamaさん</p>
-                        <p>6ヶ月でTOEFL40→100点</p>
-                    </div>
-                </article>
-                <article>
-                    <p>早稲田大学 国際教養学部AO入試合格！TOEFL iBT 109点</p>
-                    <div class="success_image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/model03.jpg" alt="">
-                    </div>
-                    <div class="flex success_flex">
-                        <p>高校生</p>
-                        <p>M.Yamadaさん</p>
-                        <p>5ヶ月でTOEFL68→109点</p>
-                    </div>
-                </article>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -167,52 +156,69 @@
         <div class="flex">
             <section class="sec_blog">
                 <h3>ブログ</h3>
+                <?php
+                $args = array(
+                    'post_type' => 'post', // 投稿タイプを指定
+                    'posts_per_page' => 3, // 表示件数を指定
+                    'orderby' =>  'rand', // ランダムに投稿を取得
+                );
+                $the_query = new WP_Query($args);
+                ?>
+                <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article class="flex">
                     <div class="blog_image">
+                        <?php if (has_post_thumbnail()) : ?>
+                        <?php echo get_the_post_thumbnail() ?>
+                        <?php else : ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/image/sample01.jpg" alt="">
-                        <span>カテゴリー</span>
+                        <?php endif; ?>
+                        <?php
+                        $category = get_the_category();
+                        $cat = $category[0]
+                        ?>
+                        <span><?php echo $cat->name ?></span>
                     </div>
                     <div class="flex blog_text">
-                        <h4><a href="#">Engress説明会in大阪の模様をお伝えします</a></h4>
-                        <time>2020-12-27</time>
+                        <h4><a href="<?php the_permalink() ?> "><?php
+                                                        if (mb_strlen($post->post_title) > 40) {
+                                                            $title = mb_substr($post->post_title, 0, 40);
+                                                            echo $title . '...';
+                                                        } else {
+                                                            echo $post->post_title;
+                                                        }
+                                                        ?></a></h4>
+                        <time><?php echo get_the_date('Y-m-d'); ?></time>
                     </div>
                 </article>
-                <article class="flex">
-                    <div class="blog_image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/sample02.jpg" alt="">
-                        <span>カテゴリー</span>
-                    </div>
-                    <div class="flex blog_text">
-                        <h4><a href="#">Engressもくもく会でみんなでTOEFL学習をしませんか？</a></h4>
-                        <time>2020-12-01</time>
-                    </div>
-                </article>
-                <article class="flex">
-                    <div class="blog_image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/sample03.jpg" alt="">
-                        <span>カテゴリー</span>
-                    </div>
-                    <div class="flex blog_text">
-                        <h4><a href="#">TOEFL学習にはコーチング学習が最強である話</a></h4>
-                        <time>2020-11-20</time>
-                    </div>
-                </article>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+                <?php endif; ?>
             </section>
             <section class="sec_news">
                 <h3>お知らせ</h3>
+                <?php
+                $args = array(
+                    'post_type' => 'news', // 投稿タイプを指定
+                    'posts_per_page' => 3, // 表示件数を指定
+                );
+                $the_query = new WP_Query($args);
+                ?>
                 <ul>
+                    <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                     <li>
-                        <time>2020-12-01</time>
-                        <h4><a href="#">2021年のスケジュールについて</a></h4>
+                        <time><?php echo get_the_date('Y-m-d'); ?></time>
+                        <h4><a href="<?php the_permalink() ?> "><?php
+                                                        if (mb_strlen($post->post_title) > 40) {
+                                                            $title = mb_substr($post->post_title, 0, 40);
+                                                            echo $title . '...';
+                                                        } else {
+                                                            echo $post->post_title;
+                                                        }
+                                                        ?></a></h4>
                     </li>
-                    <li>
-                        <time>2020-11-02</time>
-                        <h4><a href="#">11月休校日のお知らせ</a></h4>
-                    </li>
-                    <li>
-                        <time>2020-10-01</time>
-                        <h4><a href="#">10月休校日のお知らせ</a></h4>
-                    </li>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
                 </ul>
             </section>
         </div>
