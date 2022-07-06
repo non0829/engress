@@ -5,6 +5,7 @@
 
 .single_blog_left {
     width: calc(100% - 270px - 36px);
+    overflow: hidden;
 }
 
 .sidebar {
@@ -19,6 +20,9 @@
         @include backColor(navy_color);
         @include color(white_color_1);
     }
+    h2, h3, h4, h5, h6, p, table, dl, figure, ul, ol {
+        margin-bottom: 30px;
+    }
     h1 {
         font-size: 28px;
         line-height: 42px;
@@ -27,11 +31,9 @@
     }
     h2 {
         font-size: 28px;
-        margin-bottom: 30px;
     }
     h3 {
         font-size: 22px;
-        margin-bottom: 27px;
         &::before {
             content: "";
             display: inline-block;
@@ -44,7 +46,13 @@
     }
     p {
         line-height: 24px;
-        
+    }
+    dt {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    dd {
+        margin-left: 30px;
     }
     time {
         font-size: 16px;
@@ -60,36 +68,36 @@
             overflow: hidden;
         }
     }
-    }
-    .quote {
-        padding: 27px 17px;
-        margin-top: 30px;
+    blockquote {
+        padding: 27px 27px 27px 17px;
+        margin-bottom: 30px;
         @include backColor(gray_color_3);
-        span {
+        &::before {
+            content: "\“";
+            display: inline-block;
+            position: absolute;
             width: 46px;
             height: 46px;
             @include color(quote);
+            transform: translateY(-20px);
             font-size: 90px;
-            transform: translateY(-30px);
         }
         p {
-            margin-left: 10px;
-            flex: 1;
+            position: relative;
+            display: inline-block;
+            margin-left: 60px;
             line-height: 24px;
+            margin-bottom: 0px !important;
         }
     }
     ul {
-        margin-top: 30px;
+        margin-left: 30px;
         li {
             line-height: 24px;
-            width: calc(100% - 11px - 20px);
-            margin-left: auto;
             @include color(orange_color);
             padding-left: 0px;
             text-indent: -0.6em; /*インデントの調整*/
-            span {
-                @include color(navy_color);
-            }
+            @include color(navy_color);
             &::before {
                 content: '';
                 position: relative;
@@ -99,14 +107,16 @@
                 height: 11px;
                 border-radius: 100%;
                 @include backColor(orange_color);
-              }
+            }
+            ul {
+                margin-bottom: 0px;
+            }
         }
     }
     a {
         @include color(orange_color);
         font-size: 18px;
-        margin-top: 30px;
-        display: block;
+        display: inline-block;
     }
 }
 
@@ -211,8 +221,12 @@
         li {
             list-style: inside;
             font-weight: bold;
-            font-size: 16px;
             margin-bottom: 8px;
+            a {
+                @include color(navy_color);
+                font-size: 16px;
+                text-decoration: none;
+            }
         }
     }
 }
