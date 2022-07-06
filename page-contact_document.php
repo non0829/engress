@@ -12,7 +12,7 @@
             <meta itemprop="position" content="1" />
         </li>
         <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">お問い合わせ</span></a>
+            <a itemprop="item" href="#"><span itemprop="name">資料請求</span></a>
             <meta itemprop="position" content="2" />
         </li>
     </ul>

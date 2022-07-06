@@ -24,38 +24,24 @@
         <div class="wrapper flex">
             <div class="single_blog_left">
                 <article class="blog_content">
-                    <span class="tag">カテゴリー</span>
-                    <h1>ブログテキストテキストテキストテキストテキストテキスト</h1>
+                    <?php
+                    $taxonomy = 'blog_category'; //カスタムタクソノミースラッグ
+                    $taxonomy_terms_cat = wp_get_object_terms($post->ID, $taxonomy);
+                    $taxonomy_terms_cat_name = $taxonomy_terms_cat[0]->name; //ターム名
+                    ?>
+                    <span class="tag"><?php echo $taxonomy_terms_cat_name ?></span>
+                    <h1><?php the_title() ?>
+                    </h1>
                     <div class="flex">
                         <div class="sns_btn">
-                            ここにボタン入るよ
+                            <?php
+                            if( function_exists('wp_social_bookmarking_light_output_e') ) {
+                                wp_social_bookmarking_light_output_e();
+                            }
+                            ?>
                         </div>
-                        <time>2020-01-01</time>
-                    </div>
-                    <figure>
-                        <img src="./image/sample01.jpg" alt="">
-                    </figure>
-                    <div class="section2">
-                        <h2>見出しh2</h2>
-                        <p>テキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                    </div>
-                    <div class="section3">
-                        <h3>見出しh3</h3>
-                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                    </div>
-                    <div class="quote flex">
-                        <span>“</span>
-                        <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                    </div>
-                    <figure>
-                        <img src="./image/sample01.jpg" alt="">
-                    </figure>
-                    <ul>
-                        <li><span>テキストテキストテキストテキストテキストテキストテキストテキスト</span></li>
-                        <li><span>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</span></li>
-                        <li><span>テキストテキストテキストテキストテキストテキストテキストテキスト</span></li>
-                    </ul>
-                    <a href="#">リンクリンクリンクリンク</a>
+                        <time><?php echo get_the_date('Y-m-d'); ?></time>
+                        <?php the_content() ?>
                 </article>
                 <aside class="bottombar">
                     <h2>おすすめの記事</h2>
