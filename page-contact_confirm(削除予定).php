@@ -14,7 +14,7 @@
 
     <div class="confirm">
         <p>お問い合わせいただきありがとうございます<br>内容を確認した後、担当者よりご連絡いたします</p>
-        <a href="#">ホームへ戻る</a>
+        <a href="<?php echo esc_url(home_url()); ?>">ホームへ戻る</a>
     </div>
 
 </main>
@@ -50,8 +50,7 @@
         </div>
     </div>
 </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="main.js"></script>
+<?php wp_footer(); ?>
 </body>
 
 </html>

@@ -3,8 +3,8 @@
         <img src="<?php echo get_template_directory_uri(); ?>/image/cta.jpg" alt="">
         <div>
             <h2>まずは無料で資料請求から</h2>
-            <button><a href="#">資料請求</a></button>
-            <p><a href="<?php echo home_url(); ?>/contact">お問い合わせ</a></p>
+            <button><a href="<?php echo esc_url(home_url('contact')); ?>">資料請求</a></button>
+            <p><a href="<?php echo home_url("contact"); ?>">お問い合わせ</a></p>
         </div>
     </section>
     <div class="footer_phone">

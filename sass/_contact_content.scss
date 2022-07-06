@@ -1,6 +1,7 @@
 .contact_message {
     line-height: 27px;
     margin-top: 58px;
+    margin-bottom: 41px;
 }
 
 form {
@@ -24,7 +25,7 @@ form {
     label {
         display: block;
         font-size: 16px;
-        margin-bottom: 0px;
+        margin-bottom: 12px;
     }
     input {
         border: 0.5px solid #1B224C;
@@ -93,4 +94,16 @@ form {
     a {
         @include color(navy_color);
     }
+}
+
+.mwform-radio-field {
+    display: block;
+    height: 30px;
+    label {
+        margin-bottom: 0px;
+    }
+}
+
+.sec_contact_content .mw_wp_form .horizontal-item + .horizontal-item {
+    margin-left: 0px;
 }
