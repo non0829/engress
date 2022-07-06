@@ -3,7 +3,7 @@
 <main>
     <section class="sec_title_image">
         <img src="<?php echo get_template_directory_uri(); ?>/image/blog.jpg" alt="">
-        <h1>お知らせ</h1>
+        <h1>ブログ</h1>
     </section>
 
     <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -12,32 +12,54 @@
             <meta itemprop="position" content="1" />
         </li>
         <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">お知らせ</span></a>
+            <a itemprop="item" href="#"><span itemprop="name">ブログ</span></a>
             <meta itemprop="position" content="2" />
         </li>
     </ul>
 
-    <section class="sec_news_content">
+    <section class="sec_blog_content">
         <div class="wrapper">
-            <h2>お知らせ一覧</h2>
-            <ul class="news_container">
+            <h2>新着一覧</h2>
+            <div class="blog_container">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-                <li>
-                    <div class="flex">
-                        <p><?php echo get_the_date('Y-m-d'); ?></p>
-                        <p><a href="<?php the_permalink() ?> "><?php
+                <article class="flex">
+                    <div class="blog_image">
+                        <?php if (has_post_thumbnail()) : ?>
+                        <?php echo get_the_post_thumbnail() ?>
+                        <?php else : ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/image/sample01.jpg" alt="">
+                        <?php endif; ?>
+                        <?php if (is_category()) :
+                                    $category_query = get_queried_object();
+                                    $category_name = $category_query->name
+                                ?>
+                        <span><?php echo $category_name ?></span>
+                        <?php else : ?>
+                        <?php
+                                    $category = get_the_category();
+                                    $cat = $category[0]
+                                    ?>
+                        <span><?php echo $cat->name ?></span>
+                        <?php endif ?>
+                    </div>
+                    <div class="blog_text">
+                        <time><?php echo get_the_date('Y-m-d'); ?></time>
+                        <h3><a href="<?php the_permalink() ?> "><?php
                                                                         if (mb_strlen($post->post_title) > 40) {
                                                                             $title = mb_substr($post->post_title, 0, 40);
                                                                             echo $title . '...';
                                                                         } else {
                                                                             echo $post->post_title;
                                                                         }
-                                                                        ?></a></p>
+                                                                        ?></a></h3>
+                        <?php if (has_excerpt() || !empty($post->post_content)) : ?>
+                        <p><?php the_excerpt() ?></p>
+                        <?php endif ?>
                     </div>
-                </li>
+                </article>
                 <?php endwhile;
                 endif; ?>
-            </ul>
+            </div>
             <div class="pager">
                 <?php the_posts_pagination(
                     array(
