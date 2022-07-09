@@ -5,21 +5,19 @@
         <img src="<?php echo get_template_directory_uri(); ?>/image/blog.jpg" alt="">
         <h1>ブログ</h1>
     </section>
-
-    <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">ホーム</span></a>
-            <meta itemprop="position" content="1" />
-        </li>
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">ブログ</span></a>
-            <meta itemprop="position" content="2" />
-        </li>
-    </ul>
+    <?php get_template_part( 'templates/breadcrumbs' ); ?>
 
     <section class="sec_blog_content">
         <div class="wrapper">
+            <?php if (is_category()) : ?>
+            <?php
+                $category_query = get_queried_object();
+                $category_name = $category_query->name
+            ?>
+            <h2><?php echo $category_name ?>一覧</h2>
+            <?php else : ?>
             <h2>新着一覧</h2>
+            <?php endif ?>
             <div class="blog_container">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <article class="flex">
@@ -29,10 +27,7 @@
                         <?php else : ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/image/sample01.jpg" alt="">
                         <?php endif; ?>
-                        <?php if (is_category()) :
-                                    $category_query = get_queried_object();
-                                    $category_name = $category_query->name
-                                ?>
+                        <?php if (is_category()) : ?>
                         <span><?php echo $category_name ?></span>
                         <?php else : ?>
                         <?php

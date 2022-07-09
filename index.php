@@ -48,23 +48,27 @@
                 <article class="flex">
                     <div class="strong_article_left">
                         <span>特長 2</span>
-                        <h3>TOEFLに最適化された<br>無駄のないカリキュラム</h3>
-                        <p>TOEFLではビジネス英語には登場しない数多くの学術的内容が出題されます。そのため、ベースとなる知識も必要になります。Engressでは過去1000題を分析し、最適なカリキュラムを組んでいます。
+                        <h3>日本人指導歴10年以上の<br>経験豊富な講師陣</h3>
+                        <p>Engressの講師陣は、もともと日本人向けにTOEFLを教えていた人が大多数です。また全メンバーがTESOL(英語教授法)を取得しており、知識と経験を兼ね備えている教育のプロフェッショナルです。
                         </p>
                     </div>
                     <div class="strong_article_right">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/feature02.jpg" alt="">
+                        <div class="strong_article_right_inner">
+                            <img src="<?php echo get_template_directory_uri(); ?>/image/feature02.jpg" alt="">
+                        </div>
                     </div>
                 </article>
                 <article class="flex">
                     <div class="strong_article_left">
                         <span>特長 3</span>
-                        <h3>TOEFLに最適化された<br>無駄のないカリキュラム</h3>
-                        <p>TOEFLではビジネス英語には登場しない数多くの学術的内容が出題されます。そのため、ベースとなる知識も必要になります。Engressでは過去1000題を分析し、最適なカリキュラムを組んでいます。
+                        <h3>平均3ヶ月でTOEFL<br>iBT20点アップ</h3>
+                        <p>Engressは高校生からサラリーマンまで様々な年齢層の方々が通われていますが、完全オーダーメイドのカリキュラムで柔軟に対応しているため、平均3ヶ月でTOEFLスコアを20点アップさせています。
                         </p>
                     </div>
                     <div class="strong_article_right">
-                        <img src="<?php echo get_template_directory_uri(); ?>/image/feature03.jpg" alt="">
+                        <div class="strong_article_right_inner">
+                            <img src="<?php echo get_template_directory_uri(); ?>/image/feature03.jpg" alt="">
+                        </div>
                     </div>
                 </article>
                 <div class="strong_price">
@@ -92,13 +96,15 @@
                 <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article>
                     <p><?php the_title() ?></p>
-                    <div class="success_image">
-                        <img src="<?php the_field('顔写真'); ?>" alt="">
-                    </div>
-                    <div class="flex success_flex">
-                        <p><?php the_field('属性'); ?></p>
-                        <p><?php the_field('名前'); ?></p>
-                        <p><?php the_field('成績詳細'); ?></p>
+                    <div>
+                        <div class="success_image">
+                            <img src="<?php the_field('顔写真'); ?>" alt="">
+                        </div>
+                        <div class="flex success_flex">
+                            <p><?php the_field('属性'); ?></p>
+                            <p><?php the_field('名前'); ?></p>
+                            <p><?php the_field('成績詳細'); ?></p>
+                        </div>
                     </div>
                 </article>
                 <?php endwhile; ?>
@@ -140,13 +146,21 @@
         <div class="wrapper">
             <h2>よくある質問</h2>
             <div class="accordion-container">
-                <h4 class="accordion-title jsAccordionTitle">Engressはサラリーマンでも学習を続けられるでしょうか？</h4>
+                <div class="accordion-title jsAccordionTitle">
+                    <h4>Engressはサラリーマンでも学習を続けられるでしょうか？</h4>
+                </div>
                 <div class="accordion-content">Engressは各個人に最適な学習プランをご提供しております。サラリーマンの方でも継続できます。</div>
-                <h4 class="accordion-title jsAccordionTitle">教材はオリジナルのものを使用しているのでしょうか？</h4>
+                <div class="accordion-title jsAccordionTitle">
+                    <h4>教材はオリジナルのものを使用しているのでしょうか？</h4>
+                </div>
                 <div class="accordion-content">教材はEngressオリジナルのものを使用しています。</div>
-                <h4 class="accordion-title jsAccordionTitle">講師に日本人はいますか？</h4>
+                <div class="accordion-title jsAccordionTitle">
+                    <h4>講師に日本人はいますか？</h4>
+                </div>
                 <div class="accordion-content">日本人講師も在籍しています。</div>
-                <h4 class="accordion-title jsAccordionTitle">TOEFL以外の海外大学合格のサポートもしてもらえるのでしょうか？</h4>
+                <div class="accordion-title jsAccordionTitle last-accordion-title">
+                    <h4>TOEFL以外の海外大学合格のサポートもしてもらえるのでしょうか？</h4>
+                </div>
                 <div class="accordion-content">TOEFL対策専門のため、それ以外のサポートは行っておりません。</div>
             </div><!-- accordion__container -->
         </div>

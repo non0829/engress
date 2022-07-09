@@ -1,16 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">ホーム</span></a>
-            <meta itemprop="position" content="1" />
-        </li>
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">送信完了</span></a>
-            <meta itemprop="position" content="2" />
-        </li>
-    </ul>
+    <?php get_template_part( 'templates/breadcrumbs' ); ?>
 
     <div class="confirm">
         <p>お問い合わせいただきありがとうございます<br>内容を確認した後、担当者よりご連絡いたします</p>
