@@ -5,17 +5,7 @@
         <img src="<?php echo get_template_directory_uri(); ?>/image/blog.jpg" alt="">
         <h1>お知らせ</h1>
     </section>
-
-    <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">ホーム</span></a>
-            <meta itemprop="position" content="1" />
-        </li>
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">お知らせ</span></a>
-            <meta itemprop="position" content="2" />
-        </li>
-    </ul>
+    <?php get_template_part( 'templates/breadcrumbs' ); ?>
 
     <section class="sec_news_content">
         <div class="wrapper">

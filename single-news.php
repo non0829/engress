@@ -1,20 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">ホーム</span></a>
-            <meta itemprop="position" content="1" />
-        </li>
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">お知らせ</span></a>
-            <meta itemprop="position" content="2" />
-        </li>
-        <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="#"><span itemprop="name">お知らせのタイトルテキストテキストテキストテキストテキストテキストテキスト</span></a>
-            <meta itemprop="position" content="3" />
-        </li>
-    </ul>
+    <?php get_template_part( 'templates/breadcrumbs' ); ?>
 
     <article class="single_news">
         <div class="wrapper">
