@@ -17,6 +17,7 @@ function enqueue_scripts()
         wp_enqueue_style('contact', get_stylesheet_directory_uri() . '/css/contact.css', array(), '', '');
     } else if (is_post_type_archive('price')) {
         wp_enqueue_style('price', get_stylesheet_directory_uri() . '/css/price.css', array(), '', '');
+        wp_enqueue_style('scroll', 'https://unpkg.com/scroll-hint@latest/css/scroll-hint.css', array(), '', '');
     } else if (is_post_type_archive('news')) {
         wp_enqueue_style('news', get_stylesheet_directory_uri() . '/css/news.css', array(), '', '');
     } else if (is_archive()) {
@@ -29,6 +30,9 @@ function enqueue_scripts()
 
     // JS
     wp_enqueue_script('main', get_template_directory_uri() . '/main.js', array(), '', '');
+    if (is_post_type_archive('price')) {
+        wp_enqueue_script('scroll', 'https://unpkg.com/scroll-hint@latest/js/scroll-hint.min.js', array(), '', '');
+    }
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts');
 

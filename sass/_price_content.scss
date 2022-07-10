@@ -6,6 +6,10 @@
     }
     .flex {
         justify-content: center;
+        @media screen and (max-width: 640px) {
+            flex-direction: column;
+            align-items: center;
+        }
         p {
             width: 280px;
             height: 90px;
@@ -15,6 +19,9 @@
             line-height: 90px;
             font-weight: bold;
             @media screen and (max-width: 900px) {
+                width: 250px;
+            }
+            @media screen and (max-width: 640px) {
                 width: 250px;
             }
         }
@@ -46,6 +53,9 @@
     margin-top: 90px;
     margin-bottom: 62px;
     text-align: center;
+    .js-scrollable {
+        width: 900px;
+    }
     h2 {
         font-size: 32px;
         margin-bottom: 70px;

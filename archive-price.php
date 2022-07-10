@@ -23,7 +23,7 @@
     <section class="sec_price_table">
         <div class="wrapper">
             <h2>料金表</h2>
-            <ul class="flex">
+            <ul class="flex js-scrollable">
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <li>
                     <?php
