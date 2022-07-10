@@ -1,24 +1,9 @@
-// .breadcrumb__list {
-//     height: 50px;
-//     display: flex;
-//     padding-left: 14.8%;
-//     @include backColor(gray_color_3);
-//     .breadcrumb__item {
-//         line-height: 50px;
-//         + .breadcrumb__item::before {
-//             content: '>';
-//             margin-left: 6px;
-//             margin-right: 3px; 
-//         }
-//         span {
-//             font-size: 12px;
-//         }
-//     }
-// }
-
 .breadcrumbs {
     height: 50px;
     padding-left: 14.8%;
+    @media screen and (max-width: 900px) {
+        padding-left: 5%;
+    }
     @include backColor(gray_color_3);
     span {
         height: 50px;
@@ -30,10 +15,29 @@
         text-decoration: solid;
         font-size: 12px;
         span {
-            border-bottom: 1px solid #1B224C;
+            // 最下層のパンくず以外に下線を付与する
+            text-decoration: underline;
         }
     }
     > span:first-child {
         padding-left: 0px;
+    }
+}
+
+// パンくずリストが長い場合は指定の長さ以上は非表示にする
+.breadcrumbs span[property="name"] {
+    display: inline-block;
+    padding: 0;
+    margin-top: -3px;
+    vertical-align: middle;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &:hover {
+        max-width: 400px;
+        @media screen and (max-width: 640px) {
+            max-width: 100px;
+        }
     }
 }

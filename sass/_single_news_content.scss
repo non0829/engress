@@ -1,105 +1,12 @@
-// .single_news {
-//     margin-top: 60px;
-//     margin-bottom: 53px;
-//     h1 {
-//         font-size: 28px;
-//         margin-bottom: 36px;
-//     }
-//     time {
-//         text-align: right;
-//         display: block;
-//         margin-bottom: 60px;
-//     }
-//     .section1 {
-//         margin-bottom: 30px;
-//         h2 { 
-//             font-size: 26px;
-//         }
-//         p {
-//             margin-top: 30px;
-//         }
-//     }
-//     .section2 {
-//         margin-bottom: 30px;
-//         h3 {
-//             font-size: 22px;
-//             &::before {
-//                 content: "";
-//                 display: inline-block;
-//                 width: 4px;
-//                 height: 28px;
-//                 margin-right: 10px;
-//                 transform: translateY(5px);
-//                 @include backColor(navy_color);
-//             }
-//         }
-//         p {
-//             margin-top: 30px;
-//         }
-//     }
-//     .quote {
-//         padding: 27px 17px;
-//         margin-top: 30px;
-//         @include backColor(gray_color_3);
-//         span {
-//             width: 46px;
-//             height: 46px;
-//             @include color(quote);
-//             font-size: 90px;
-//             transform: translateY(-30px);
-//         }
-//         p {
-//             margin-left: 10px;
-//             flex: 1;
-//             line-height: 24px;
-//         }
-//     }
-//     figure {
-//         width: 400px;
-//         height: 250px;
-//         margin-top: 30px;
-//         img {
-//             width: 100%;
-//             height: 100%;
-//             object-fit: cover;
-//             overflow: hidden;
-//         }
-//     }
-//     ul {
-//         margin-top: 36px;
-//         li {
-//             line-height: 24px;
-//             width: calc(100% - 11px - 20px);
-//             margin-left: auto;
-//             @include color(orange_color);
-//             padding-left: 0px;
-//             text-indent: -0.6em; /*インデントの調整*/
-//             span {
-//                 @include color(navy_color);
-//             }
-//             &::before {
-//                 content: '';
-//                 position: relative;
-//                 left: -20px;
-//                 display: inline-block;
-//                 width: 11px;
-//                 height: 11px;
-//                 border-radius: 100%;
-//                 @include backColor(orange_color);
-//             }
-//         }
-//     }
-//     a {
-//         @include color(orange_color);
-//         font-size: 18px;
-//         margin-top: 30px;
-//         display: block;
-//     }
-// }
-
 .single_news {
     margin-top: 60px;
     margin-bottom: 53px;
+    .wrapper {
+        @media screen and (max-width: 900px) {
+            max-width: 600px;
+            width: 90%;
+        }
+    }
     .tag {
         font-size: 12px;
         text-align: center;
@@ -154,6 +61,10 @@
     figure {
         width: 400px;
         height: 250px;
+        @media screen and (max-width: 640px) {
+            width: 300px;
+            height: 200px;
+        }
         img {
             width: 100%;
             height: 100%;
