@@ -18,4 +18,13 @@ jQuery(function () {
             jQuery('.back_color').addClass('is-active')
         }
     })
+
+    // 料金表　スクロール
+    new ScrollHint('.js-scrollable', {
+        scrollHintIconAppendClass: 'scroll-hint-icon-white', // white-icon will appear
+        applyToParents: true,
+        i18n: {
+        scrollable: 'スクロールできます'
+        }
+    });
 })
