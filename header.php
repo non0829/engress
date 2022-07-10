@@ -53,7 +53,8 @@
                         <p>0123-456-7890</p>
                     </div>
                 </div>
-                <button class="header_btn button"><a href="#">資料請求</a></button>
+                <button class="header_btn button"><a
+                        href="<?php echo esc_url(home_url('contact')); ?>">資料請求</a></button>
                 <button class="header_btn button"><a
                         href="<?php echo esc_url(home_url('contact')); ?>">お問い合わせ</a></button>
             </nav>

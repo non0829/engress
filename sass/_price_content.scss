@@ -14,6 +14,9 @@
             font-size: 22px;
             line-height: 90px;
             font-weight: bold;
+            @media screen and (max-width: 900px) {
+                width: 250px;
+            }
         }
         span {
             width: 98px;
